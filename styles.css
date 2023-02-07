@@ -1,0 +1,24 @@
+.app {
+  display: flex;
+  border: 1px solid grey;
+  padding: 30px;
+  justify-content: space-around;
+  max-width: 500px;
+  margin: 30px;
+}
+.output-block {
+  border: 1px solid grey;
+}
+.range {
+  min-width: 200px;
+}
+.reset-btn {
+  margin-left: 30px;
+  width: 100px;
+  height: 30px;
+  cursor: pointer;
+  background-color: rgb(61, 61, 240);
+  color: white;
+  border: none;
+  border-radius: 5px;
+}

@@ -2,6 +2,7 @@
   "compilerOptions": {
     "outDir": "./ts/",
     "noImplicitAny": true,
+    "strictPropertyInitialization": false,
     "strict": true,
     "module": "es6",
     "target": "es5",

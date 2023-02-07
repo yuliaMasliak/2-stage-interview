@@ -1,4 +1,4 @@
-import { InputRange } from "./inputRange";
+import { InputRange } from './inputRange';
 
 export class rangeBlock {
   input: InputRange;
@@ -7,10 +7,10 @@ export class rangeBlock {
   }
 
   createInputs() {
-    const drawRangeBlock = document.createElement("div") as HTMLElement;
-
-    for (let i = 0; i < 3; i += 1) {
-      drawRangeBlock.append(this.input.createInput());
+    const drawRangeBlock = document.createElement('div') as HTMLElement;
+    drawRangeBlock.classList.add('range-block');
+    for (let i = 1; i < 4; i += 1) {
+      drawRangeBlock.append(this.input.createInput(i));
     }
     return drawRangeBlock as Node;
   }
