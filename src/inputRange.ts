@@ -1,5 +1,3 @@
-import App from './app';
-
 export class InputRange {
   obj = {
     value: 30,
@@ -34,9 +32,12 @@ export class InputRange {
     console.log(this.obj.value);
     return outputValue as HTMLElement;
   }
-  resetOutputValues(id: number) {
+
+  resetOutputValues() {
     this.obj.value = 0;
+
     return this.obj.value;
   }
+
   listenInput() {}
 }

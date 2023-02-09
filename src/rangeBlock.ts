@@ -1,10 +1,6 @@
 import { InputRange } from './inputRange';
 
-export class rangeBlock extends InputRange {
-  constructor() {
-    super();
-  }
-
+export class RangeBlock extends InputRange {
   createInputs() {
     const drawRangeBlock = document.createElement('div') as HTMLElement;
     drawRangeBlock.classList.add('range-block');

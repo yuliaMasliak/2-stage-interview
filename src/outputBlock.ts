@@ -1,10 +1,6 @@
-import { rangeBlock } from './rangeBlock';
+import { RangeBlock } from './rangeBlock';
 
-export class outputBlock extends rangeBlock {
-  constructor() {
-    super();
-  }
-
+export class OutputBlock extends RangeBlock {
   createInputsValues() {
     const outputValuesBlock = document.createElement('div') as HTMLElement;
     outputValuesBlock.classList.add('output-block');

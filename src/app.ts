@@ -1,20 +1,24 @@
 import { InputRange } from './inputRange';
-import { outputBlock } from './outputBlock';
-import { rangeBlock } from './rangeBlock';
-import { resetButton } from './resetButton';
+import { OutputBlock } from './outputBlock';
+import { RangeBlock } from './rangeBlock';
+import { ResetButton } from './resetButton';
 
 export class App {
-  outputBlock: outputBlock;
-  rangeBlock: rangeBlock;
-  resetButton: resetButton;
+  outputBlock: OutputBlock;
+
+  rangeBlock: RangeBlock;
+
+  resetButton: ResetButton;
+
   html: HTMLElement;
+
   inputRange: InputRange;
 
   constructor(html: HTMLElement) {
     this.html = html;
-    this.outputBlock = new outputBlock();
-    this.rangeBlock = new rangeBlock();
-    this.resetButton = new resetButton(this.html);
+    this.outputBlock = new OutputBlock();
+    this.rangeBlock = new RangeBlock();
+    this.resetButton = new ResetButton(this.html);
   }
 
   start() {
