@@ -1,11 +1,4 @@
 export class InputRange {
-  inputId: number;
-  value: number;
-  consrtuctor(inputId: number) {
-    this.inputId = inputId;
-    this.value = this.obj.value;
-  }
-
   obj = {
     value: 30,
   };
@@ -22,7 +15,7 @@ export class InputRange {
     range.addEventListener('input', () => {
       range.setAttribute('value', `${range.valueAsNumber}`);
       this.obj.value = range.valueAsNumber;
-      console.log(this.obj.value);
+      console.log(range.valueAsNumber);
     });
 
     const rangeItem = document.createElement('div') as HTMLInputElement;
@@ -35,11 +28,12 @@ export class InputRange {
     outputValue.classList.add('output-value');
     outputValue.innerHTML = '';
     outputValue.innerHTML = `Range №${id} has value ${this.obj.value}`;
-
+    console.log(this.obj.value);
     return outputValue as HTMLElement;
   }
   resetOutputValues(id: number) {
     this.obj.value = 0;
     return this.obj.value;
   }
+  listenInput() {}
 }
