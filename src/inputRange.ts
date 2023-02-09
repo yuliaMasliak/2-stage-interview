@@ -1,3 +1,5 @@
+import App from './app';
+
 export class InputRange {
   obj = {
     value: 30,
@@ -15,6 +17,7 @@ export class InputRange {
     range.addEventListener('input', () => {
       range.setAttribute('value', `${range.valueAsNumber}`);
       this.obj.value = range.valueAsNumber;
+      // this.html.innerHTML = '';
       console.log(range.valueAsNumber);
     });
 
