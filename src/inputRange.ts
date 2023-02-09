@@ -1,11 +1,14 @@
 export class InputRange {
   inputId: number;
-  inputValue: number;
-
-  consrtuctor(inputId: number, inputValue: number) {
+  value: number;
+  consrtuctor(inputId: number) {
     this.inputId = inputId;
-    this.inputValue = inputValue;
+    this.value = this.obj.value;
   }
+
+  obj = {
+    value: 30,
+  };
 
   createInput(inputId: number) {
     const range = document.createElement('input') as HTMLInputElement;
@@ -14,28 +17,29 @@ export class InputRange {
     range.setAttribute('min', '0');
     range.setAttribute('max', '100');
     range.setAttribute('id', `${inputId}`);
-    range.setAttribute('value', `${50}`);
-    this.inputValue = range.valueAsNumber;
+    range.setAttribute('value', `${this.obj.value}`);
 
     range.addEventListener('input', () => {
       range.setAttribute('value', `${range.valueAsNumber}`);
-      this.inputValue = range.valueAsNumber;
-      this.createInputValues(inputId, range.valueAsNumber);
+      this.obj.value = range.valueAsNumber;
+      console.log(this.obj.value);
     });
+
     const rangeItem = document.createElement('div') as HTMLInputElement;
     rangeItem.append(range);
-    return rangeItem as HTMLElement;
+    return range as HTMLInputElement;
   }
-  createInputValues(id: number, value: number) {
+
+  createOutputValues(id: number) {
     const outputValue = document.createElement('div') as HTMLInputElement;
     outputValue.classList.add('output-value');
-    outputValue.setAttribute('id', `${id}-value`);
-    outputValue.innerHTML = `Range #${id} has value ${value}`;
-    const outputValuesBlock = document.createElement('div') as HTMLElement;
+    outputValue.innerHTML = '';
+    outputValue.innerHTML = `Range №${id} has value ${this.obj.value}`;
 
-    for (let i = 1; i < 4; i += 1) {
-      outputValuesBlock.append(outputValue);
-    }
-    return outputValuesBlock as Node;
+    return outputValue as HTMLElement;
+  }
+  resetOutputValues(id: number) {
+    this.obj.value = 0;
+    return this.obj.value;
   }
 }

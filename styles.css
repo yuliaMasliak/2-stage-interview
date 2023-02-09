@@ -8,9 +8,14 @@
 }
 .output-block {
   border: 1px solid grey;
+  padding: 15px;
+  min-width: 200px;
 }
 .range {
   min-width: 200px;
+}
+.range-block {
+  padding: 15px;
 }
 .reset-btn {
   margin-left: 30px;

@@ -1,18 +1,16 @@
-import { InputRange } from './inputRange';
+import { rangeBlock } from './rangeBlock';
 
-export class outputBlock {
-  input: InputRange;
-  inputValue: number;
+export class outputBlock extends rangeBlock {
   constructor() {
-    this.input = new InputRange();
-    this.inputValue = this.input.inputValue;
+    super();
   }
 
   createInputsValues() {
     const outputValuesBlock = document.createElement('div') as HTMLElement;
     outputValuesBlock.classList.add('output-block');
     for (let i = 1; i < 4; i += 1) {
-      outputValuesBlock.append(this.input.createInputValues(i, this.inputValue));
+      this.createOutputValues(i);
+      outputValuesBlock.append(this.createOutputValues(i));
     }
     return outputValuesBlock as Node;
   }

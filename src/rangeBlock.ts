@@ -1,17 +1,19 @@
 import { InputRange } from './inputRange';
 
-export class rangeBlock {
-  input: InputRange;
+export class rangeBlock extends InputRange {
   constructor() {
-    this.input = new InputRange();
+    super();
   }
 
   createInputs() {
     const drawRangeBlock = document.createElement('div') as HTMLElement;
     drawRangeBlock.classList.add('range-block');
     for (let i = 1; i < 4; i += 1) {
-      drawRangeBlock.append(this.input.createInput(i));
+      this.createInput(i).addEventListener('input', () => {
+        this.createOutputValues(i);
+      });
+      drawRangeBlock.append(this.createInput(i));
     }
-    return drawRangeBlock as Node;
+    return drawRangeBlock as HTMLElement;
   }
 }
