@@ -8,11 +8,7 @@ export class ResetButton {
 
     ResetBtn.addEventListener('click', () => {
       inputs.forEach((input) => {
-        console.log(input.createInput(1));
-        //input.style.backgroundColor = 'red';
         input.resetOutputValues();
-        input.getRangeValue();
-        input.createOutputValues();
       });
     });
     return ResetBtn as HTMLElement;

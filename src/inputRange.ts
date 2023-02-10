@@ -2,20 +2,20 @@ export class InputRange {
   el: HTMLInputElement;
 
   constructor(id: number) {
-    this.el = this.createInput(id);
+    this.el = document.createElement('input') as HTMLInputElement;
+    this.el.classList.add('range');
+    this.el.setAttribute('type', 'range');
+    this.el.setAttribute('min', '0');
+    this.el.setAttribute('max', '100');
+    this.el.setAttribute('id', `${id}`);
+    this.el.setAttribute('value', `${this.defaultValue}`);
+    return;
   }
 
   public defaultValue = 30;
 
-  createInput(inputId: number) {
-    const range: HTMLInputElement = document.createElement('input') as HTMLInputElement;
-    range.classList.add('range');
-    range.setAttribute('type', 'range');
-    range.setAttribute('min', '0');
-    range.setAttribute('max', '100');
-    range.setAttribute('id', `${inputId}`);
-    range.setAttribute('value', `${this.defaultValue}`);
-    return range as HTMLInputElement;
+  createInput() {
+    return this.el as HTMLInputElement;
   }
 
   createOutputValues() {
