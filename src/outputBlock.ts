@@ -1,12 +1,13 @@
-import { RangeBlock } from './rangeBlock';
+import { InputRange } from './InputRange';
 
-export class OutputBlock extends RangeBlock {
-  createInputsValues() {
+export class OutputBlock {
+  render(inputs: InputRange[]) {
     const outputValuesBlock = document.createElement('div') as HTMLElement;
     outputValuesBlock.classList.add('output-block');
-    for (let i = 1; i < 4; i += 1) {
-      outputValuesBlock.append(this.createOutputValues(i));
-    }
+    inputs.forEach((input) => {
+      outputValuesBlock.append(input.createOutputValues());
+    });
+
     return outputValuesBlock as Node;
   }
 }

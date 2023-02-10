@@ -4,29 +4,27 @@ import { RangeBlock } from './rangeBlock';
 import { ResetButton } from './resetButton';
 
 export class App {
-  outputBlock: OutputBlock;
-
-  rangeBlock: RangeBlock;
-
-  resetButton: ResetButton;
-
   html: HTMLElement;
-
-  inputRange: InputRange;
 
   constructor(html: HTMLElement) {
     this.html = html;
-    this.outputBlock = new OutputBlock();
-    this.rangeBlock = new RangeBlock();
-    this.resetButton = new ResetButton(this.html);
   }
 
   start() {
     const appBlock = document.createElement('div');
     appBlock.classList.add('app');
+    const inputs: InputRange[] = [];
+    for (let i = 1; i < 4; i += 1) {
+      const input: InputRange = new InputRange(i);
+      inputs.push(input);
+    }
 
-    appBlock.append(this.rangeBlock.createInputs(), this.outputBlock.createInputsValues());
-    this.html.append(appBlock, this.resetButton.createBtn());
+    const resetBtn = new ResetButton();
+    const rangeBlock = new RangeBlock();
+    const outputBlock = new OutputBlock();
+
+    appBlock.append(rangeBlock.render(inputs), outputBlock.render(inputs));
+    this.html.append(appBlock, resetBtn.createBtn(inputs));
   }
 }
 
