@@ -22,7 +22,6 @@ export class InputRange {
     const outputValue = document.createElement('div') as HTMLElement;
     outputValue.innerHTML = this.getRangeValue();
     this.el.addEventListener('input', () => {
-      alert('Hi');
       outputValue.innerHTML = this.getRangeValue();
     });
     return outputValue as HTMLElement;
@@ -34,5 +33,6 @@ export class InputRange {
 
   resetOutputValues() {
     this.el.valueAsNumber = 0;
+    this.createOutputValues();
   }
 }
