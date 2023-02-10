@@ -21,7 +21,8 @@ export class InputRange {
   createOutputValues() {
     const outputValue = document.createElement('div') as HTMLElement;
     outputValue.innerHTML = this.getRangeValue();
-    this.el.addEventListener('input', (): void => {
+    this.el.addEventListener('input', () => {
+      alert('Hi');
       outputValue.innerHTML = this.getRangeValue();
     });
     return outputValue as HTMLElement;

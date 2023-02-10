@@ -20,10 +20,8 @@ export class App {
     }
 
     const resetBtn = new ResetButton();
-    const rangeBlock = new RangeBlock();
-    const outputBlock = new OutputBlock();
 
-    appBlock.append(rangeBlock.render(inputs), outputBlock.render(inputs));
+    appBlock.append(RangeBlock.render(inputs), OutputBlock.render(inputs));
     this.html.append(appBlock, resetBtn.createBtn(inputs));
   }
 }
