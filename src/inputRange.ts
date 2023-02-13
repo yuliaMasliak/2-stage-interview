@@ -9,7 +9,6 @@ export class InputRange {
     this.el.setAttribute('max', '100');
     this.el.setAttribute('id', `${id}`);
     this.el.setAttribute('value', `${this.defaultValue}`);
-    return;
   }
 
   public defaultValue = 30;
