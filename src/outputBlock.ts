@@ -3,8 +3,6 @@ import { IData } from './interfaces';
 export class OutputBlock {
   output: HTMLElement;
 
-  html: HTMLElement;
-
   value: string;
 
   id: string;

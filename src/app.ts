@@ -2,7 +2,7 @@ import { InputRange } from './InputRange';
 import { OutputBlock } from './outputBlock';
 import { RangeBlock } from './rangeBlock';
 import { ResetButton } from './resetButton';
-// import { Event } from './event';
+import { Events } from './event';
 
 export class App {
   html: HTMLElement;
@@ -24,21 +24,16 @@ export class App {
       };
       const outputBlock = new OutputBlock(`${data.id}`, `${data.value}`);
       outputBlock.renderContent();
-
-      input.createInput().addEventListener('input', () => {
+      const newEvent = new Events(input.createInput());
+      console.log(newEvent);
+      input.createInput().onchange = () => {
         data.id = input.createInput().id;
         data.value = input.createInput().value;
         outputBlock.updateData(data);
-      });
+      };
+
       output.append(outputBlock.renderContent());
     }
-
-    // const eventClass = new Event(input.createInput(), input.createInput().value);
-    // eventClass.onChange = (data) => {
-    //   this.updateData(data);
-    //   console.log(data);
-    //   console.log(eventClass);
-    // };
 
     const resetBtn = new ResetButton();
     const rangeBlock = new RangeBlock();

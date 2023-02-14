@@ -9,7 +9,7 @@ export class ResetButton {
     ResetBtn.addEventListener('click', () => {
       inputs.forEach((input) => {
         input.resetOutputValues();
-        input.el.dispatchEvent(new Event('input'));
+        input.el.dispatchEvent(new Event('change'));
       });
     });
 
