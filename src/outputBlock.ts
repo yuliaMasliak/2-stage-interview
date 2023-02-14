@@ -1,40 +1,38 @@
-import { InputRange } from './InputRange';
-import { RangeBlock } from './rangeBlock';
-import { ResetButton } from './resetButton';
-import { Event } from './event';
+import { IData } from './interfaces';
 
-export class OutputBlock extends RangeBlock {
-  renderContent(): string | Node {
-    const inputs: InputRange[] = [];
+export class OutputBlock {
+  output: HTMLElement;
 
-    for (let i = 1; i < 4; i += 1) {
-      const input: InputRange = new InputRange(i);
-      inputs.push(input);
+  html: HTMLElement;
 
-      const eventClass = new Event(input.createInput(), input.createInput().value);
-      eventClass.onChange = (data) => {
-        this.updateData(data);
-        console.log(data);
-      };
-    }
-    const resetBtn = new ResetButton();
-    this.renderRanges(inputs);
+  value: string;
 
-    const output = document.createElement('div') as HTMLElement;
-    output.classList.add('output');
-    const outputValuesBlock = document.createElement('div') as HTMLElement;
-    outputValuesBlock.classList.add('output-block');
-    inputs.forEach((input) => {
-      outputValuesBlock.append(input.createOutputValues());
-    });
-    const appBlock = document.createElement('div');
-    appBlock.classList.add('app');
-    output.append(this.renderRanges(inputs), outputValuesBlock);
-    appBlock.append(output, resetBtn.createBtn(inputs));
-    return appBlock as Node;
+  id: string;
+
+  data: IData;
+
+  startValue: string;
+
+  constructor(id: string, value: string, html: HTMLElement) {
+    this.output = document.createElement('div') as HTMLElement;
+    this.output.classList.add('output-value');
+    this.data = {
+      id,
+      value,
+    };
+    this.html = html;
+    this.startValue = `Range №${this.data.id} has value ${this.data.value}`;
   }
 
-  updateData(data: string) {
-    console.log(data);
+  renderContent() {
+    this.output.innerHTML = this.startValue;
+    this.html.append(this.output);
+    return this.html as Node;
+  }
+
+  updateData(data: IData) {
+    this.startValue = `Range №${data.id} has value ${data.value}`;
+
+    this.renderContent();
   }
 }

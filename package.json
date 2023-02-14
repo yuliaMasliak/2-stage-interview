@@ -1,7 +1,6 @@
 {
   "name": "2-stage-interview",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.config.js",
@@ -39,5 +38,6 @@
   "dependencies": {
     "clean-webpack-plugin": "^4.0.0",
     "eslint-config-airbnb-typescript": "^17.0.0"
-  }
+  },
+  "description": ""
 }
