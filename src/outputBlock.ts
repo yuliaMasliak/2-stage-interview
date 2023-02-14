@@ -13,21 +13,20 @@ export class OutputBlock {
 
   startValue: string;
 
-  constructor(id: string, value: string, html: HTMLElement) {
+  constructor(id: string, value: string) {
     this.output = document.createElement('div') as HTMLElement;
     this.output.classList.add('output-value');
     this.data = {
       id,
       value,
     };
-    this.html = html;
+
     this.startValue = `Range №${this.data.id} has value ${this.data.value}`;
   }
 
   renderContent() {
     this.output.innerHTML = this.startValue;
-    this.html.append(this.output);
-    return this.html as Node;
+    return this.output as Node;
   }
 
   updateData(data: IData) {

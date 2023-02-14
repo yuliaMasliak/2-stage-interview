@@ -22,7 +22,7 @@ export class App {
         id: input.createInput().id,
         value: input.createInput().value,
       };
-      const outputBlock = new OutputBlock(`${data.id}`, `${data.value}`, output);
+      const outputBlock = new OutputBlock(`${data.id}`, `${data.value}`);
       outputBlock.renderContent();
 
       input.createInput().addEventListener('input', () => {
@@ -30,6 +30,7 @@ export class App {
         data.value = input.createInput().value;
         outputBlock.updateData(data);
       });
+      output.append(outputBlock.renderContent());
     }
 
     // const eventClass = new Event(input.createInput(), input.createInput().value);
