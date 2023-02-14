@@ -1,7 +1,4 @@
-import { InputRange } from './inputRange';
 import { OutputBlock } from './outputBlock';
-import { RangeBlock } from './rangeBlock';
-import { ResetButton } from './resetButton';
 
 export class App {
   html: HTMLElement;
@@ -11,18 +8,9 @@ export class App {
   }
 
   start() {
-    const appBlock = document.createElement('div');
-    appBlock.classList.add('app');
-    const inputs: InputRange[] = [];
-    for (let i = 1; i < 4; i += 1) {
-      const input: InputRange = new InputRange(i);
-      inputs.push(input);
-    }
+    const outputBlock = new OutputBlock();
 
-    const resetBtn = new ResetButton();
-
-    appBlock.append(RangeBlock.render(inputs), OutputBlock.render(inputs));
-    this.html.append(appBlock, resetBtn.createBtn(inputs));
+    this.html.append(outputBlock.renderContent());
   }
 }
 

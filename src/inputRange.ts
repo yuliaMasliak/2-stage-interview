@@ -1,6 +1,8 @@
 export class InputRange {
   el: HTMLInputElement;
 
+  id: number;
+
   constructor(id: number) {
     this.el = document.createElement('input') as HTMLInputElement;
     this.el.classList.add('range');
@@ -9,7 +11,6 @@ export class InputRange {
     this.el.setAttribute('max', '100');
     this.el.setAttribute('id', `${id}`);
     this.el.setAttribute('value', `${this.defaultValue}`);
-    return;
   }
 
   public defaultValue = 30;
@@ -28,7 +29,7 @@ export class InputRange {
   }
 
   getRangeValue() {
-    return `Range №${this.el.getAttribute('id')} has value ${this.el.value}`;
+    return `Range №${this.el.id} has value ${this.el.value}`;
   }
 
   resetOutputValues() {

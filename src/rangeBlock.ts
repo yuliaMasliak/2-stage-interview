@@ -1,7 +1,7 @@
 import { InputRange } from './inputRange';
 
 export class RangeBlock {
-  static render(inputs: InputRange[]): string | Node {
+  renderRanges(inputs: InputRange[]): string | Node {
     const drawRangeBlock: HTMLElement = document.createElement('div') as HTMLElement;
     drawRangeBlock.classList.add('range-block');
     inputs.forEach((input) => {
